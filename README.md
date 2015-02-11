@@ -21,3 +21,11 @@ $ yo django-axiacore
 * Gulp
 * Sass
 * Compass
+
+### Dependencies 
+  
+* Node
+* Npm
+* Python
+* Ruby
+
