@@ -1,0 +1,19 @@
+# Framework
+Django==1.7.4
+
+# Libs
+pep8==1.4.6
+psycopg2==2.5.4
+py-bcrypt==0.3
+raven==5.1.1
+Pillow==2.6.1
+Sphinx==1.2.3
+
+# Apps
+django-axes==1.3.8
+django-grappelli==2.6.3
+# django-crispy-forms==1.4.0
+django-extensions==1.4.5
+django-pipeline==1.3.26
+https://github.com/AxiaCore/django-discover-jenkins/archive/master.zip
+coverage==3.5

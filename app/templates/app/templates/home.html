@@ -1,0 +1,17 @@
+{% extends "layout/base.html" %}
+
+{% load staticfiles compressed %}
+
+{% block css %}
+{% compressed_css "home" %}
+{% endblock %}
+
+{% block content %}
+<div class="index">
+</div>
+{% endblock %}
+
+{% block js %}
+{% compressed_js "home" %}
+{% endblock %}
+

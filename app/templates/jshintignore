@@ -1,0 +1,2 @@
+# JShint ignored files
+app/static/js/vendor/**

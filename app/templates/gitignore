@@ -1,0 +1,45 @@
+# File types
+*.pyc
+*.swo
+*.swp
+*.swn
+*.log
+*.mo
+
+# OS files
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+*~
+
+# Configuration files
+/app/local_settings.py
+.idea
+.sass-cache
+.tags
+.tags_sorted_by_file
+Gemfile.lock
+
+# Compass generated files
+/app/static/css/*.css
+/app/static/img/sprite/*.png
+/app/media/css/ie.css
+/app/media/css/print.css
+/app/media/css/screen.css
+/app/media/img/sprite-*.png
+
+# Folders
+/reports/
+/doc/build/
+.bundle-gems
+/media/
+/static/
+/node_modules
+/app/static/css/*.css.map
+
+# Bower components
+/app/static/bower_components
+
+# Gems.
+/app/static/.bundle-gems

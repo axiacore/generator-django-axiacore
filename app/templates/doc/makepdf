@@ -1,0 +1,7 @@
+#!/bin/bash
+
+export PYTHONPATH=$PYTHONPATH:${PWD%/*/*}:${PWD%/*}
+export DJANGO_SETTINGS_MODULE=app.settings
+make latex
+cd build/latex
+make all-pdf
