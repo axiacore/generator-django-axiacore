@@ -103,7 +103,6 @@ module.exports = yeoman.generators.Base.extend({
       // Directory.
       this.directory('conf', 'conf');
       this.directory('doc', 'doc');
-      this.directory('reports', 'reports');
       this.directory('app', 'app');
       this.directory('bundle', '.bundle');
 
