@@ -1,4 +1,4 @@
-Documentacion
+Documentación
 =============
 
 En las siguientes secciones puede encontrar información relativa a instalación
