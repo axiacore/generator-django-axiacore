@@ -6,14 +6,11 @@ Base template for django projects at [AxiaCore](http://axiacore.com), includes G
 
 ```bash
 
-# Create a new forlder for your project
+# Create a new folder for your project
 $ mkdir my-awesome-project & cd my-awesome-project
 
-# Install yeoman
-$ npm install -g yo
-
-# Install the generator
-$ npm install -g generator-django-axiacore
+# Install yeoman and django-generator
+$ sudo npm install -g yo generator-django-axiacore
 
 # Use the generator
 $ yo django-axiacore
