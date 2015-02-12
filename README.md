@@ -5,6 +5,10 @@ Base template for django projects at [AxiaCore](http://axiacore.com), includes G
 ### Quick start
 
 ```bash
+
+# Create a new forlder for your project
+mkdir my-awesome-project & cs my-awesome-project
+
 # Install yeoman
 $ npm install -g yo
 
