@@ -1,13 +1,15 @@
 Django project template
 =======================
 
-This is the base template for the django projects at AxiaCore.
+This file should contain developer instructions for the project.
 
-Feel free to improve as you like :)
+External libraries
+------------------
 
-Usage:
+Usually you will find external libraries using Bower, if you cant'
+find it there you can copy the library inside the ´´´app/static/vendor/´´´
+folder. You must copy there the whole project directory so you can update
+it easily just replacing it.
 
-```bash
-$ django-admin.py startproject --template=https://github.com/axiacore/django-project-template/zipball/master <project_name>
-```
+The vendor directory is ignored by jshint.
 
