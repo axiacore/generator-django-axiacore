@@ -13,7 +13,7 @@ source_encoding = 'utf-8'
 master_doc = 'index'
 
 project = u'{{ project_name }}'
-copyright = u'2013, AxiaCore'
+copyright = u'AxiaCore'
 
 version = '1.0'
 release = '1.0'

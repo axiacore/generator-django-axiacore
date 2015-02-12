@@ -15,13 +15,13 @@ y configuración de la aplicación, así como documentación relativa al código
    db_model.rst
 
 
-2. Despliegue
+2. Modulo
 -------------
 
 .. toctree::
    :maxdepth: 2
 
-   deploy.rst
+   algun-modulo.rst
 
 
 Indices y tablas
