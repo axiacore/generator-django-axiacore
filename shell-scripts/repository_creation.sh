@@ -1,5 +1,5 @@
 #!/bin/bash
-# This scripts creates a repository in bitbucket
+# This script creates a repository in bitbucket
 if [ "$#" -ne 5 ]; then
   echo 'Usage: '$0 'USER PASSWORD REPOSLUG URLKEYS "REPOSITORY DESCRIPTION"' >&2
   exit 1
