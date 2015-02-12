@@ -21,7 +21,7 @@ CURLRESULT=$(curl -v -X POST -u $USERNAME:$PASSWORD -H "Content-Type: applicatio
 
 if [[ $CURLRESULT == *"already exists"* ]]
 then
-  echo "The repository $SLUG already existed"
+  echo "The repository $SLUG already exists"
   exit 1
 fi
 
@@ -35,3 +35,4 @@ do
   CURLRESULT=$(curl -v --request POST --user $USERNAME:$PASSWORD \
   $REPO --header "Content-Type: application/json" --header "Accept: application/json" -d "{\"key\": \"$KEY\"}" 2>/dev/null)
 done
+
