@@ -13,7 +13,7 @@ module.exports = yeoman.generators.Base.extend({
 
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the delightful ' + chalk.red('DjangoAxiacore') + ' generator!'
+      'Welcome to the delightful' + chalk.red('DjangoAxiacore') + ' generator!'
     ));
 
     var prompts = [{
@@ -35,7 +35,7 @@ module.exports = yeoman.generators.Base.extend({
       default: this.appname
     },
     {
-      type: 'input',
+      type: 'password',
       name: 'bbPass',
       message: 'Bitbucket account password',
       default: this.appname
@@ -71,7 +71,7 @@ module.exports = yeoman.generators.Base.extend({
       default: 'django'
     },
     {
-      type: 'password',
+      type: 'input',
       name: 'dbPass',
       message: 'What\'s your database password?',
       default: 'django'
