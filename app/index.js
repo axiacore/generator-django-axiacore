@@ -30,6 +30,30 @@ module.exports = yeoman.generators.Base.extend({
     },
     {
       type: 'input',
+      name: 'bbUsername',
+      message: 'Bitbucket username',
+      default: this.appname
+    },
+    {
+      type: 'input',
+      name: 'bbPass',
+      message: 'Bitbucket account password',
+      default: this.appname
+    },
+    {
+      type: 'input',
+      name: 'repoSlug',
+      message: 'Bitbucket repository slug',
+      default: this.appname
+    },
+    {
+      type: 'input',
+      name: 'deploymentKeysUrl',
+      message: 'Deployment keys URL',
+      default: this.appname
+    },
+    {
+      type: 'input',
       name: 'adminSiteName',
       message: 'Admin site name',
       default: 'Administrador ' + this.appname
@@ -47,7 +71,7 @@ module.exports = yeoman.generators.Base.extend({
       default: 'django'
     },
     {
-      type: 'input',
+      type: 'password',
       name: 'dbPass',
       message: 'What\'s your database password?',
       default: 'django'
@@ -65,6 +89,12 @@ module.exports = yeoman.generators.Base.extend({
       this.dbPass = props.dbPass;
 
       this.adminSiteName = props.adminSiteName;
+
+      // Repository setup.
+      this.bbUsername = props.bbUsername;
+      this.bbPass = props.bbPass;
+      this.repoSlug = props.repoSlug;
+      this.deploymentKeysUrl = props.deploymentKeysUrl;
 
       done();
     }.bind(this));
@@ -108,11 +138,12 @@ module.exports = yeoman.generators.Base.extend({
       this.copy('bowerrc', '.bowerrc');
       this.copy('manage.py', 'manage.py');
 
-      // Directory.
+      // Directories.
       this.directory('conf', 'conf');
       this.directory('doc', 'doc');
       this.directory('app', 'app');
       this.directory('bundle', '.bundle');
+      this.directory('shell-scripts', 'shell-scripts');
 
       // Settings.
       this.template(
@@ -144,8 +175,36 @@ module.exports = yeoman.generators.Base.extend({
       skipInstall: this.options['skip-install'],
     });
 
+    var that = this;
+
     // Initialize a git repository.
-    this.spawnCommand('git', ['init']);
+    this.spawnCommand('git', ['init']).on(
+      'close', function (code) {
+
+      // Set origin.
+      that.spawnCommand(
+        'git',
+        [
+          'remote',
+          'add',
+          'origin',
+          'git@bitbucket.org:axiacore/' + that.repoSlug + '.git'
+        ]
+      );
+    });
+
+    // Repository creation.
+    this.spawnCommand(
+      'shell-scripts/repository_creation.sh',
+      [
+        this.bbUsername,
+        this.bbPass,
+        this.repoSlug,
+        this.deploymentKeysUrl,
+        this.description
+      ]
+    );
+
   }
 
 });
