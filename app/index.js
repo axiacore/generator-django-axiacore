@@ -20,13 +20,19 @@ module.exports = yeoman.generators.Base.extend({
       type: 'input',
       name: 'name',
       message: 'Project name',
-      default: 'project'
+      default: this.appname
     },
     {
       type: 'input',
       name: 'description',
       message: 'Project description',
       default: 'description'
+    },
+    {
+      type: 'input',
+      name: 'adminSiteName',
+      message: 'Admin site name',
+      default: 'Administrador ' + this.appname
     },
     {
       type: 'input',
@@ -57,6 +63,8 @@ module.exports = yeoman.generators.Base.extend({
       this.dbName = props.dbName;
       this.dbUser = props.dbUser;
       this.dbPass = props.dbPass;
+
+      this.adminSiteName = props.adminSiteName;
 
       done();
     }.bind(this));
@@ -105,6 +113,16 @@ module.exports = yeoman.generators.Base.extend({
       this.directory('doc', 'doc');
       this.directory('app', 'app');
       this.directory('bundle', '.bundle');
+
+      // Settings.
+      this.template(
+        'settings.py',
+        'app/settings.py',
+        this,
+        {
+          adminSiteName: this.adminSiteName
+        }
+      );
 
       // Local settings.
       this.template(

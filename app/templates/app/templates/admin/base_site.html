@@ -1,0 +1,59 @@
+{% extends "admin/base.html" %}
+{% load i18n grp_tags static analytics_code %}
+
+{% block title %}{{ title }} | Grano de Arena{% endblock %}
+
+{% block branding %}
+    <style type="text/css">
+    header#grp-header #grp-navigation #grp-branding:after {
+        content: "|";
+        padding: 10px 0 10px 10px;
+        float: left;
+        color: #4FB2D3;
+    }
+    header#grp-header #grp-navigation #grp-branding a {
+        color: #FFF;
+        float: left;
+        padding: 10px 0;
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: 600;
+        margin-left: 10px;
+    }
+    header#grp-header #grp-navigation #grp-branding a:hover {
+        color: #4FB2D3;
+    }
+    </style>
+    <div id="grp-branding"><a href="/">Front</a></div>
+{% endblock %}
+
+{% block footer %}
+{{ block.super }}
+{% google_analytics_admin_code %}
+<script type="text/javascript" src="//assets.zendesk.com/external/zenbox/v2.5/zenbox.js"></script>
+<style type="text/css" media="screen, projection">
+  @import url(//assets.zendesk.com/external/zenbox/v2.5/zenbox.css);
+</style>
+<script type="text/javascript">
+  var z_box = '20109493';
+  var z_username = '{{ user.get_full_name }}';
+  var z_email = '{{ user.email }}';
+
+  grp.jQuery('a[href="#support"]').attr({
+    'href': 'https://axiacore.zendesk.com/account/dropboxes/' + z_box,
+  }).click(function () { Zenbox.show(); return false; });
+
+  if (typeof(Zenbox) !== "undefined") {
+    Zenbox.init({
+      dropboxID:        z_box,
+      url:              "https://axiacore.zendesk.com",
+      tabID:            "Soporte",
+      tabColor:         "black",
+      tabPosition:      "Left",
+      requester_name:   z_username,
+      requester_email:  z_email,
+      hide_tab:         "true"
+    });
+  }
+</script>
+{% endblock %}
