@@ -16,8 +16,10 @@ DESC=$5
 REPO="https://api.bitbucket.org/2.0/repositories/axiacore/$SLUG"
 
 # Create repository
-CURLRESULT=$(curl -v -X POST -u $USERNAME:$PASSWORD -H "Content-Type: application/json" \
-  $REPO -d "{\"scm\": \"git\", \"is_private\": \"true\", \"fork_policy\": \"no_forks\", \"description\": \"$DESC\", \"language\": \"python\", \"has_issues\": \"false\", \"has_wiki\": \"false\"}" 2>/dev/null)
+CURLRESULT=$(curl -v -X POST -u $USERNAME:$PASSWORD \
+  -H "Content-Type: application/json" $REPO \
+  -d "{\"scm\": \"git\", \"is_private\": \"true\", \"fork_policy\": \"no_forks\", \"description\": \"$DESC\", \"language\": \"python\", \"has_issues\": \"false\", \"has_wiki\": \"false\"}" \
+  2>/dev/null)
 
 if [[ $CURLRESULT == *"already exists"* ]]
 then
@@ -32,7 +34,9 @@ REPO="https://bitbucket.org/api/1.0/repositories/axiacore/$SLUG/deploy-keys"
 # Authorize those keys
 for KEY in "${LINES[@]}"
 do
-  CURLRESULT=$(curl -v --request POST --user $USERNAME:$PASSWORD \
-  $REPO --header "Content-Type: application/json" --header "Accept: application/json" -d "{\"key\": \"$KEY\"}" 2>/dev/null)
+  CURLRESULT=$(curl -v --request POST --user $USERNAME:$PASSWORD $REPO \
+  --header "Content-Type: application/json" \
+  --header "Accept: application/json" \
+  -d "{\"key\": \"$KEY\"}" 2>/dev/null)
 done
 
