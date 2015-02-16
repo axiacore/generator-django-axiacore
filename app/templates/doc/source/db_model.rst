@@ -2,7 +2,7 @@ Diagrama del modelo de datos
 ============================
 
 La siguiente imagen describe el modelo de datos completo de la aplicación,
-teniendo en cuenta los modulos externos y las relaciones entre componentes.
+teniendo en cuenta las librerías externas y las relaciones entre componentes.
 
 Esta imagen puede ser generada nuevamente usando el comando:
 

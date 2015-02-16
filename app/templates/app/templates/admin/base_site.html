@@ -1,7 +1,7 @@
 {% extends "admin/base.html" %}
 {% load i18n grp_tags static analytics_code %}
 
-{% block title %}{{ title }} | Grano de Arena{% endblock %}
+{% block title %}{{ title }} | <%= adminSiteName %>{% endblock %}
 
 {% block branding %}
     <style type="text/css">
@@ -35,7 +35,7 @@
   @import url(//assets.zendesk.com/external/zenbox/v2.5/zenbox.css);
 </style>
 <script type="text/javascript">
-  var z_box = '20109493';
+  var z_box = '';  // TODO: Must set this bro
   var z_username = '{{ user.get_full_name }}';
   var z_email = '{{ user.email }}';
 

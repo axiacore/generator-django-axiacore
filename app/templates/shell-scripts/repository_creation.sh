@@ -15,6 +15,8 @@ DESC=$5
 
 REPO="https://api.bitbucket.org/2.0/repositories/axiacore/$SLUG"
 
+echo "LOREM IPSUM"
+
 # Create repository
 CURLRESULT=$(curl -v -X POST -u $USERNAME:$PASSWORD \
   -H "Content-Type: application/json" $REPO \

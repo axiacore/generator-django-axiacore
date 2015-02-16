@@ -13,3 +13,23 @@ it easily just replacing it.
 
 The vendor directory is ignored by jshint.
 
+
+Documentation
+-------------
+
+User documentation is created using Sphinx, you just need this to generate it:
+
+´´´
+    $ cd doc
+    $ ./makehtml
+´´´
+
+If you want to create the pdf version just:
+
+´´´
+    $ ./makepdf
+´´´
+
+You need to have in your computer the Latex package.
+
+
