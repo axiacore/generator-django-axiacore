@@ -11,7 +11,11 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-INSTALLED_APPS = (
+TEST_PROJECT_APPS = (
+    'app',
+)
+
+INSTALLED_APPS = TEST_PROJECT_APPS + (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -62,4 +66,3 @@ AXES_LOGIN_FAILURE_LIMIT = 10
 AXES_USE_USER_AGENT = True
 AXES_COOLOFF_TIME = 1
 AXES_LOCKOUT_TEMPLATE = '403.html'
-
