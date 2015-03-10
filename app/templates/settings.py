@@ -77,7 +77,6 @@ AXES_USE_USER_AGENT = True
 AXES_COOLOFF_TIME = 1
 AXES_LOCKOUT_TEMPLATE = '403.html'
 
-
 # Have pipeline settings in a separate file.
 settings_file = __import__('app.pipeline_settings').pipeline_settings
 for setting_value in dir(settings_file):
