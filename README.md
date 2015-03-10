@@ -16,6 +16,12 @@ $ sudo npm install -g yo generator-django-axiacore
 $ yo django-axiacore
 ```
 
+### Supported setup options
+
+You can setup the project to use [Materialize](http://materializecss.com/) or [Bootstrap](getbootstrap.com).
+
+![setup](https://raw.githubusercontent.com/AxiaCore/generator-django-axiacore/master/images/materialize.png)
+
 ### Technologies
 
 * Bower
