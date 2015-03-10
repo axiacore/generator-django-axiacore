@@ -16,6 +16,7 @@ TEST_PROJECT_APPS = (
 )
 
 INSTALLED_APPS = TEST_PROJECT_APPS + (
+    'pipeline',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -31,6 +32,14 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
+
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'pipeline.finders.PipelineFinder',
 )
 
 ROOT_URLCONF = 'app.urls'
@@ -56,6 +65,7 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 PASSWORD_HASHERS = (
@@ -66,3 +76,15 @@ AXES_LOGIN_FAILURE_LIMIT = 10
 AXES_USE_USER_AGENT = True
 AXES_COOLOFF_TIME = 1
 AXES_LOCKOUT_TEMPLATE = '403.html'
+
+
+# Have pipeline settings in a separate file.
+settings_file = __import__('app.pipeline_settings').pipeline_settings
+for setting_value in dir(settings_file):
+    locals()[setting_value] = getattr(settings_file, setting_value)
+
+import sys
+if 'test' in sys.argv:
+    from app.test_settings import *  # pylint: disable=W0401,W0614
+else:
+    from app.local_settings import *  # pylint: disable=F0401,E0611

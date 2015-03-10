@@ -15,6 +15,6 @@
   ],
   "dependencies": {
     "jquery": "~2.1.1",
-    "bootstrap": "~3.2.0"
+    <% if (cssFramework == "materialize") { %>"materialize": "0.95.3"<% } else { %>"bootstrap": "~3.2.0"<% } %>
   }
 }

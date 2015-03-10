@@ -29,6 +29,21 @@ module.exports = yeoman.generators.Base.extend({
       default: 'description'
     },
     {
+      type: 'list',
+      name: 'cssFramework',
+      message: 'What css framework do you want to use?',
+      choices:[{
+        name: 'Materialize',
+        value: 'materialize',
+        checked: true
+      },{
+        name: 'Bootstrap',
+        value: 'bootstrap',
+        checked: false
+      }],
+      default: 'materialize'
+    },
+    {
       type: 'input',
       name: 'bbUsername',
       message: 'Bitbucket username',
@@ -82,6 +97,7 @@ module.exports = yeoman.generators.Base.extend({
       // App info.
       this.name = props.name;
       this.description = props.description;
+      this.cssFramework = props.cssFramework;
 
       // Database.
       this.dbName = props.dbName;

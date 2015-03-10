@@ -63,3 +63,13 @@ AXES_USE_USER_AGENT = True
 AXES_COOLOFF_TIME = 1
 AXES_LOCKOUT_TEMPLATE = '403.html'
 
+# Have pipeline settings in a separate file.
+settings_file = __import__('app.pipeline_settings').pipeline_settings
+for setting_value in dir(settings_file):
+    locals()[setting_value] = getattr(settings_file, setting_value)
+
+import sys
+if 'test' in sys.argv:
+    from app.test_settings import *  # pylint: disable=W0401,W0614
+else:
+    from app.local_settings import *  # pylint: disable=F0401,E0611
