@@ -176,7 +176,7 @@ module.exports = yeoman.generators.Base.extend({
     // Step 2.
     this.log(
       chalk.bold.green(
-        '    2.  run "./manage.py makemigrations" and "./manage.py migrate" if you added a new model'
+        '    2.  run "./manage.py makemigrations" and "./manage.py migrate" if you added a new model.'
       )
     );
     this.log('');
