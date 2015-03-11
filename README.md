@@ -18,11 +18,20 @@ $ sudo npm install -g yo generator-django-axiacore
 $ yo django-axiacore
 ```
 
-### Supported setup options
+### Adding Bootstrap or Materialize 
 
 You can setup the project to use [Materialize](http://materializecss.com/) or [Bootstrap](getbootstrap.com).
 
 ![setup](https://raw.githubusercontent.com/AxiaCore/generator-django-axiacore/master/images/materialize.png)
+
+### Subgenerators
+
+Using the subgenerator *startapp* `yo django-axiacore:startapp` you can create a new app with scaffold *Views* and *Urls*.
+
+```bash
+$ yo django-axiacore:startapp
+```
+![startapp](https://raw.githubusercontent.com/AxiaCore/generator-django-axiacore/master/images/startapp.png)
 
 ### Technologies
 
