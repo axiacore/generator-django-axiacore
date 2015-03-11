@@ -1,6 +1,6 @@
 {
   "name": "generator-django-axiacore",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "AxiaCore Django project generator using Yeoman",
   "license": "MIT",
   "main": "app/index.js",
