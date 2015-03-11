@@ -162,7 +162,21 @@ module.exports = yeoman.generators.Base.extend({
     this.log('');
     this.log(
       chalk.bold.green(
-        '  Good job! now make sure to include <' + this.appName + '> in you installed apps.'
+        '  Good job! now make sure to:'
+      )
+    );
+
+    // Step 1.
+    this.log(
+      chalk.bold.green(
+        '    1.  include <' + this.appName + '> in you installed apps.'
+      )
+    );
+
+    // Step 2.
+    this.log(
+      chalk.bold.green(
+        '    2.  run "./manage.py makemigrations" and "./manage.py migrate" if you added a new model'
       )
     );
     this.log('');
