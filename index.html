@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Django AxiaCore - Yeoman Generator</title>
+
+  <!-- CSS  -->
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="css/prism.css">
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+    <nav class="light-blue lighten-1" role="navigation">
+        <div class="container">
+            <div class="nav-wrapper"><a id="logo-container" href="#" class="brand-logo">Django Generator</a>
+                <ul class="right">
+                    <li><a href="https://www.npmjs.com/package/generator-django-axiacore">View on NPM</a></li>
+                </ul>
+
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="https://www.npmjs.com/package/generator-django-axiacore">View on NPM</a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+          </div>
+        </div>
+    </nav>
+
+    <div class="row intro grey lighten-4">
+        <div class="col s12 m12">
+            <div class="container">
+                <div class="row">
+                    <div class="col m12 s12 center white-text ">
+                        <h1>Stop writing boilerplate code</h1>
+                        <h5 class="margin-top-20">Scaffold the generals of your Django project with grace.</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col m12 s12 center white-text">
+                        <a href="#get-started" class="btn-large orange cloud_get_started waves-effect waves-light">Get Started</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="github-commit">
+        <div class="container">
+            <div class="commit">
+                Latest Commit on Github:
+                &nbsp;&nbsp;
+                <a href="" class="sha"></a>
+                &nbsp;&nbsp;
+                <span class="date"></span>
+                <a id="github-button" href="https://github.com/axiacore/generator-django-axiacore" class="btn-flat right grey-text text-lighten-5 waves-effect waves-light hide-on-small-only">Github</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section intro-text">
+        <div class="container">
+            <p class="center flow-text"><a href="https://github.com/AxiaCore/generator-django-axiacore">Django AxiaCore</a> is a <a href="http://yeoman.io/">Yeoman</a> generator that allows you
+            to create high quality <a href="https://www.djangoproject.com/">Django</a> apps easily. Generates the basic file structure and recomended settings that are boilerplate to every project.</p>
+            <blockquote>
+                <p class="center flow-text grey-text text-lighten-1">We use it at our company to start every new project.</p>
+            </blockquote>
+        </div>
+    </div>
+
+    <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+            <br><br>
+            <h3 id="get-started" class="header center orange-text">Getting started</h3>
+            <div class="row center">
+                <h5 class="header col s12 light">Start by installing <a href="http://yeoman.io/">Yo</a> and the generator.</h5>
+            </div>
+
+          <div class="row center">
+            <pre><code class="language-bash">
+# Install yo
+$ npm install -g yo
+
+# Install Django generator
+$ npm install -g generator-django-axiacore</code></pre>
+          </div>
+          <br><br>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h3 class="header center orange-text">Usage</h3>
+            <div class="row center">
+                <h5 class="header col s12 light">Create a folder for your app and generate your project</h5>
+            </div>
+            <div class="row center">
+                <pre><code class="language-bash">
+# Create a directory for your app.
+$ mkdir my-awesome-project & cd my-awesome-project
+
+# Install Django generator
+$ yo django-axiacore</code></pre>
+
+          </div>
+        </div>
+
+        <br><br>
+
+        <div class="section">
+            <h3 class="header center orange-text">Subgenerator</h3>
+            <div class="row center">
+                <h5 class="header col s12 light">Create a new app using <code>startapp</code></h5>
+            </div>
+            <div class="row center">
+                <pre><code class="language-bash">
+# Create app.
+$ yo django-axiacore:startapp</code></pre>
+
+          </div>
+        </div>
+
+        <div class="section">
+            <h3 class="header center orange-text">Screenshots</h3>
+            <div class="row center">
+                <h5 class="header col s12 light">Examples of the generator in practice.</h5>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="section">
+            <div class="row">
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h5 class="center">Main Generator</h5>
+                        <p>
+                            <img class="responsive-img z-depth-1 materialboxed" src="https://raw.githubusercontent.com/AxiaCore/generator-django-axiacore/master/images/materialize.png" alt="">
+                        </p>
+                        <p class="light center">Generates the folder structure and for your project.</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h5 class="center">Subgenerator</h5>
+                        <p>
+                            <img class="responsive-img z-depth-1 materialboxed" src="https://raw.githubusercontent.com/AxiaCore/generator-django-axiacore/master/images/startapp.png" alt="">
+                        </p>
+                        <p class="light center">Scaffolds a new app within your project.</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h5 class="center">Result</h5>
+                        <p>
+                            <img class="responsive-img z-depth-1 materialboxed" src="https://raw.githubusercontent.com/AxiaCore/generator-django-axiacore/master/images/demo.png" alt="">
+                        </p>
+                        <p class="light center"><a href="http://materializecss.com">Materialize</a> generated project</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="page-footer orange">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">AxiaCore</h5>
+                    <p class="grey-text text-lighten-4">We're a design and development studio building awesome web apps.</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Made by <a class="orange-text text-lighten-3" href="http://axiacore.com">AxiaCore</a>
+            </div>
+        </div>
+    </footer>
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.4.1/jquery.timeago.min.js"></script>
+    <script src="js/prism.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+  </body>
+</html>

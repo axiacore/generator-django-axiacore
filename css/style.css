@@ -1,0 +1,46 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ */
+
+.icon-block {
+  padding: 0 15px;
+}
+
+.container {
+    max-width: 900px;
+}
+
+/* Intro */
+.intro {
+    padding: 130px 0;
+    background-image: url(http://axiacore.s3.amazonaws.com/uploads/post/652c3745-7f54-452a-be2d-ca6c6bed9bd7/beginners-introduction-reactjs.jpg);
+    background-size: cover;
+    margin-bottom: 0;
+}
+
+.intro-text {
+    margin-top: 70px;
+}
+
+hr {
+    border: 1px solid #ddd;
+}
+
+.github-commit {
+    padding: 14px 0;
+    height: 64px;
+    line-height: 36px;
+    background-color: #efefef;
+    font-size: 0.9rem;
+}
+
+#github-button {
+    background-color: #6F6D6D;
+}
+
+nav .brand-logo {
+    font-size: 1.8rem;
+}
