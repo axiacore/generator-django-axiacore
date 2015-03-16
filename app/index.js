@@ -43,6 +43,11 @@ module.exports = yeoman.generators.Base.extend({
         ],
         "default": 'materialize'
       }, {
+        type: 'confirm',
+        name: 'useCoffeeScript',
+        message: 'Would you like to use CoffeeScript?',
+        "default": false
+      }, {
         type: 'input',
         name: 'bbUsername',
         message: 'Bitbucket username',
@@ -88,6 +93,7 @@ module.exports = yeoman.generators.Base.extend({
       this.name = props.name;
       this.description = props.description;
       this.cssFramework = props.cssFramework;
+      this.useCoffeeScript = props.useCoffeeScript;
       this.dbName = props.dbName;
       this.dbUser = props.dbUser;
       this.dbPass = props.dbPass;
@@ -105,15 +111,23 @@ module.exports = yeoman.generators.Base.extend({
         name: this.name,
         description: this.description
       });
-      return this.template('_bower.json', 'bower.json', this, {
+      this.template('_bower.json', 'bower.json', this, {
         name: this.name,
         description: this.description
       });
+      this.template('gulpfile.js', 'gulpfile.js', this, {
+        useCoffeeScript: this.useCoffeeScript
+      });
+      this.template('local_settings.py', 'app/local_settings.py', this, {
+        dbName: this.dbName,
+        dbUser: this.dbUser,
+        dbPass: this.dbPass
+      });
+      return this.copy('Gemfile', 'Gemfile');
     },
     projectfiles: function() {
       this.copy('editorconfig', '.editorconfig');
       this.copy('jshintignore', '.jshintignore');
-      this.copy('gulpfile.js', 'gulpfile.js');
       this.copy('requirements.txt', 'requirements.txt');
       this.copy('LICENCE.md', 'LICENCE.md');
       this.copy('gitignore', '.gitignore');
@@ -127,11 +141,7 @@ module.exports = yeoman.generators.Base.extend({
       this.template('settings.py', 'app/settings.py', this, {
         adminSiteName: this.adminSiteName
       });
-      return this.template('local_settings.py', 'app/local_settings.py', this, {
-        dbName: this.dbName,
-        dbUser: this.dbUser,
-        dbPass: this.dbPass
-      });
+      return this.copy('main.sample.coffee', 'app/static/coffeescript/main.coffee');
     }
   },
   install: function() {
@@ -143,6 +153,7 @@ module.exports = yeoman.generators.Base.extend({
     this.spawnCommand('git', ['init']).on('close', function() {
       return that.spawnCommand('git', ['remote', 'add', 'origin', 'git@bitbucket.org:axiacore/' + that.repoSlug + '.git']);
     });
+    this.spawnCommand('bundle', ['install']);
     return this.spawnCommand('shell-scripts/repository_creation.sh', [this.bbUsername, this.bbPass, this.repoSlug, this.deploymentKeysUrl, this.description]);
   }
 });

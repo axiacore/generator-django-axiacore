@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var compass = require('gulp-compass');
 var plumber = require('gulp-plumber');
 var livereload = require('gulp-livereload');
-
+<% if (useCoffeeScript) { %>var coffee = require('gulp-coffee');<% } %>
 var git = require('gulp-git');
 var bump = require('gulp-bump');
 var filter = require('gulp-filter');
@@ -59,6 +59,13 @@ gulp.task('compile', function() {
         .pipe(livereload());
 });
 
+<% if (useCoffeeScript) { %>gulp.task('coffee', function() {
+    return gulp.src('app/static/coffeescript/*.coffee')
+        .pipe(plumber(plumber_options))
+        .pipe(coffee({bare: true}))
+        .pipe(gulp.dest('app/static/js'));
+});<% } %>
+
 gulp.task('watch', function() {
     livereload.listen();
 
@@ -70,6 +77,10 @@ gulp.task('watch', function() {
 
     // When a django template is changed reload
     gulp.watch('*/templates/**/*').on('change', livereload.changed);
+    <% if (useCoffeeScript) { %>
+    // Generate JavaScript on file change.
+    gulp.watch('app/static/coffeescript/*.coffee', ['coffee']);
+    <% } %>
 });
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['compile', <% if (useCoffeeScript) { %>'coffee', <% } %>'watch']);

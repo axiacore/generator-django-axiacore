@@ -21,4 +21,4 @@ gulp.task 'watch', ->
   gulp.watch 'app/*.coffee', ['coffee']
 
 # Default task: Compile CoffeeScript.
-gulp.task 'default', ['watch']
+gulp.task 'default', ['coffee', 'watch']

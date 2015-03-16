@@ -54,6 +54,12 @@ module.exports = yeoman.generators.Base.extend(
         default: 'materialize'
       }
       {
+        type: 'confirm'
+        name: 'useCoffeeScript'
+        message: 'Would you like to use CoffeeScript?'
+        default: false
+      }
+      {
         type: 'input'
         name: 'bbUsername'
         message: 'Bitbucket username'
@@ -110,6 +116,7 @@ module.exports = yeoman.generators.Base.extend(
       @name = props.name
       @description = props.description
       @cssFramework = props.cssFramework
+      @useCoffeeScript = props.useCoffeeScript
 
       # Database.
       @dbName = props.dbName
@@ -143,12 +150,24 @@ module.exports = yeoman.generators.Base.extend(
         name: @name
         description: @description
 
+      # Gulpfile.
+      @template 'gulpfile.js', 'gulpfile.js', this,
+        useCoffeeScript: @useCoffeeScript
+
+      # Local settings.
+      @template 'local_settings.py', 'app/local_settings.py', this,
+        dbName: @dbName
+        dbUser: @dbUser
+        dbPass: @dbPass
+
+      # Gemfile.
+      @copy 'Gemfile', 'Gemfile'
+
     projectfiles: ->
 
       # Copy dotfiles and other files.
       @copy 'editorconfig', '.editorconfig'
       @copy 'jshintignore', '.jshintignore'
-      @copy 'gulpfile.js', 'gulpfile.js'
       @copy 'requirements.txt', 'requirements.txt'
       @copy 'LICENCE.md', 'LICENCE.md'
       @copy 'gitignore', '.gitignore'
@@ -165,11 +184,8 @@ module.exports = yeoman.generators.Base.extend(
       # Settings.
       @template 'settings.py', 'app/settings.py', this, adminSiteName: @adminSiteName
 
-      # Local settings.
-      @template 'local_settings.py', 'app/local_settings.py', this,
-        dbName: @dbName
-        dbUser: @dbUser
-        dbPass: @dbPass
+      # Are we using CoffeeScript.
+      @copy 'main.sample.coffee', 'app/static/coffeescript/main.coffee'
 
   #
   # Called after all files are copied.
@@ -188,6 +204,9 @@ module.exports = yeoman.generators.Base.extend(
         'origin'
         'git@bitbucket.org:axiacore/' + that.repoSlug + '.git'
       ]
+
+    # Install Gems.
+    @spawnCommand 'bundle', ['install']
 
     # Repository creation.
     @spawnCommand 'shell-scripts/repository_creation.sh', [
