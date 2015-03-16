@@ -33,6 +33,25 @@ $ yo django-axiacore:startapp
 ```
 ![startapp](https://raw.githubusercontent.com/AxiaCore/generator-django-axiacore/master/images/startapp.png)
 
+### Contributing
+
+We love contributions, so, don't hesitate in creating an issue or sending us a pull request.
+
+### Development
+
+The main generator [file](https://github.com/AxiaCore/generator-django-axiacore/blob/master/app/index.coffee) is written in [CoffeeScript](http://coffeescript.org), and we use [Gulp](http://gulpjs.com/) to compile it. 
+To set the generator up just clone the repository and run:
+
+```bash
+# Install dependencies.
+$ npm install 
+
+# Run tasks.
+$ gulp
+
+# Hack...
+```
+
 ### Technologies
 
 * Bower
@@ -46,4 +65,3 @@ $ yo django-axiacore:startapp
 * Npm
 * Python
 * Ruby
-
