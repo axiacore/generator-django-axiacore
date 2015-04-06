@@ -2,6 +2,8 @@
 
 Base template for django projects at [AxiaCore](http://axiacore.com), includes Gulp build with Compass and Live Reload. Also browser dependencies using Bower.
 
+[View on NPM](https://www.npmjs.com/package/generator-django-axiacore)
+
 ![materialize](https://raw.githubusercontent.com/AxiaCore/generator-django-axiacore/master/images/demo.png)
 
 ### Quick start
