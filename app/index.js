@@ -20,12 +20,12 @@ module.exports = yeoman.generators.Base.extend({
         type: 'input',
         name: 'name',
         message: 'Project name',
-        "default": this.appname
+        'default': this.appname
       }, {
         type: 'input',
         name: 'description',
         message: 'Project description',
-        "default": 'description'
+        'default': 'description'
       }, {
         type: 'list',
         name: 'cssFramework',
@@ -41,54 +41,35 @@ module.exports = yeoman.generators.Base.extend({
             checked: false
           }
         ],
-        "default": 'materialize'
+        'default': 'materialize'
       }, {
         type: 'confirm',
         name: 'useCoffeeScript',
         message: 'Would you like to use CoffeeScript?',
-        "default": false
-      }, {
-        type: 'input',
-        name: 'bbUsername',
-        message: 'Bitbucket username',
-        "default": this.appname
-      }, {
-        type: 'password',
-        name: 'bbPass',
-        message: 'Bitbucket account password',
-        "default": this.appname
-      }, {
-        type: 'input',
-        name: 'repoSlug',
-        message: 'Bitbucket repository slug',
-        "default": this.appname
-      }, {
-        type: 'input',
-        name: 'deploymentKeysUrl',
-        message: 'Deployment keys URL',
-        "default": this.appname
+        'default': false
       }, {
         type: 'input',
         name: 'adminSiteName',
         message: 'Admin site name',
-        "default": 'Administrador ' + this.appname
+        'default': 'Administrador de ' + this.appname
       }, {
         type: 'input',
         name: 'dbName',
         message: 'What\'s the name of your database?',
-        "default": this.appname
+        'default': this.appname
       }, {
         type: 'input',
         name: 'dbUser',
         message: 'What\'s the user of your database?',
-        "default": 'django'
+        'default': 'django'
       }, {
         type: 'input',
         name: 'dbPass',
         message: 'What\'s your database password?',
-        "default": 'django'
+        'default': 'django'
       }
     ];
+
     return this.prompt(prompts, (function(props) {
       this.name = props.name;
       this.description = props.description;
@@ -98,10 +79,6 @@ module.exports = yeoman.generators.Base.extend({
       this.dbUser = props.dbUser;
       this.dbPass = props.dbPass;
       this.adminSiteName = props.adminSiteName;
-      this.bbUsername = props.bbUsername;
-      this.bbPass = props.bbPass;
-      this.repoSlug = props.repoSlug;
-      this.deploymentKeysUrl = props.deploymentKeysUrl;
       return done();
     }).bind(this));
   },
@@ -154,6 +131,6 @@ module.exports = yeoman.generators.Base.extend({
       return that.spawnCommand('git', ['remote', 'add', 'origin', 'git@bitbucket.org:axiacore/' + that.repoSlug + '.git']);
     });
     this.spawnCommand('bundle', ['install']);
-    return this.spawnCommand('shell-scripts/repository_creation.sh', [this.bbUsername, this.bbPass, this.repoSlug, this.deploymentKeysUrl, this.description]);
+    return this.spawnCommand('shell-scripts/prepare_environment.sh', [this.dbName]);
   }
 });

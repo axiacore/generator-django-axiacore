@@ -5,25 +5,25 @@
 # You are using postgresql, virtualenv and you have every requisite needed to
 # work in your project
 
-if [ "$#" -ne 2 ]; then
+if [ "$#" -ne 1 ]; then
   echo 'Usage: '$0 'APP_NAME(Your application name)"' >&2
   exit 1
 fi
 
 APPNAME=$1
-PATH=$2
 
-cd $PATH
-if [ ! -e "requirements.txt"]; then
+if [ ! -e "requirements.txt" ]; then
+  pwd
   echo 'Make sure you are running the script inside your repository structure'
 fi
 
 # Create Database
-createdb -O django $1
+createdb -O django $APPNAME
 
 # Create virtualenv
-mkvirtualenv $APPNAME'_app'
+virtualenv ~/.virtualenvs/$APPNAME'_app'/
 
 # install requirements
 . ~/.virtualenvs/$APPNAME'_app'/bin/activate
-pip install -r requirements.txt
+
+~/.virtualenvs/$APPNAME'_app'/bin/pip install -r requirements.txt
