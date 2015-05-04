@@ -56,6 +56,16 @@ $ gulp
 # Hack...
 ```
 
+### Development
+
+Main project file is written in [CoffeeScript](coffeescript.org) so we use Gulp for building it.
+It's located in `app/index.coffee`.
+
+```bash
+# Run gulp, which will watch for changes in `.coffee` files.
+$ gulp
+```
+
 ### Technologies
 
 * Bower
