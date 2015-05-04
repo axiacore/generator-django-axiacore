@@ -26,7 +26,7 @@ module.exports = yeoman.generators.Base.extend(
       {
         type: 'input'
         name: 'name'
-        message: 'Project name'
+        message: 'Project slug'
         default: @appname
       }
       {
@@ -61,33 +61,9 @@ module.exports = yeoman.generators.Base.extend(
       }
       {
         type: 'input'
-        name: 'bbUsername'
-        message: 'Bitbucket username'
-        default: @appname
-      }
-      {
-        type: 'password'
-        name: 'bbPass'
-        message: 'Bitbucket account password'
-        default: @appname
-      }
-      {
-        type: 'input'
-        name: 'repoSlug'
-        message: 'Bitbucket repository slug'
-        default: @appname
-      }
-      {
-        type: 'input'
-        name: 'deploymentKeysUrl'
-        message: 'Deployment keys URL'
-        default: @appname
-      }
-      {
-        type: 'input'
         name: 'adminSiteName'
         message: 'Admin site name'
-        default: 'Administrador ' + @appname
+        default: 'Administrador de ' + @appname
       }
       {
         type: 'input'
@@ -124,11 +100,6 @@ module.exports = yeoman.generators.Base.extend(
       @dbPass = props.dbPass
       @adminSiteName = props.adminSiteName
 
-      # Repository setup.
-      @bbUsername = props.bbUsername
-      @bbPass = props.bbPass
-      @repoSlug = props.repoSlug
-      @deploymentKeysUrl = props.deploymentKeysUrl
       done()
 
     ).bind(this)
@@ -209,12 +180,6 @@ module.exports = yeoman.generators.Base.extend(
     @spawnCommand 'bundle', ['install']
 
     # Repository creation.
-    @spawnCommand 'shell-scripts/repository_creation.sh', [
-      @bbUsername
-      @bbPass
-      @repoSlug
-      @deploymentKeysUrl
-      @description
-    ]
+    @spawnCommand 'shell-scripts/prepare_environment.sh', [@dbName]
 
 )

@@ -19,13 +19,13 @@ module.exports = yeoman.generators.Base.extend({
       {
         type: 'input',
         name: 'name',
-        message: 'Project name',
-        'default': this.appname
+        message: 'Project slug',
+        "default": this.appname
       }, {
         type: 'input',
         name: 'description',
         message: 'Project description',
-        'default': 'description'
+        "default": 'description'
       }, {
         type: 'list',
         name: 'cssFramework',
@@ -41,35 +41,34 @@ module.exports = yeoman.generators.Base.extend({
             checked: false
           }
         ],
-        'default': 'materialize'
+        "default": 'materialize'
       }, {
         type: 'confirm',
         name: 'useCoffeeScript',
         message: 'Would you like to use CoffeeScript?',
-        'default': false
+        "default": false
       }, {
         type: 'input',
         name: 'adminSiteName',
         message: 'Admin site name',
-        'default': 'Administrador de ' + this.appname
+        "default": 'Administrador de ' + this.appname
       }, {
         type: 'input',
         name: 'dbName',
         message: 'What\'s the name of your database?',
-        'default': this.appname
+        "default": this.appname
       }, {
         type: 'input',
         name: 'dbUser',
         message: 'What\'s the user of your database?',
-        'default': 'django'
+        "default": 'django'
       }, {
         type: 'input',
         name: 'dbPass',
         message: 'What\'s your database password?',
-        'default': 'django'
+        "default": 'django'
       }
     ];
-
     return this.prompt(prompts, (function(props) {
       this.name = props.name;
       this.description = props.description;
