@@ -1,3 +1,4 @@
 {
+  "interactive": false,
   "directory": "app/static/bower_components"
 }
