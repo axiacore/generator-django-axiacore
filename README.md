@@ -20,6 +20,15 @@ $ sudo npm install -g yo generator-django-axiacore
 
 # Use the generator
 $ yo django-axiacore
+
+# Fire up your new enviroment
+$ workon my-awesome-project_app
+
+# Make your migrations
+$ ./manage.py migrate
+
+# Run!!!
+$ ./manage.py runserver 0.0.0.0:8000
 ```
 
 ### Adding Bootstrap or Materialize 
@@ -73,8 +82,8 @@ $ gulp
 * Sass
 * Compass
 
-### Dependencies 
-  
+### Dependencies
+
 * Node
 * Npm
 * Python

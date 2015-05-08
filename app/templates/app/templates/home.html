@@ -1,10 +1,6 @@
 {% extends "layout/base.html" %}
 
-{% load staticfiles pipeline %}
-
-{% block css %}
-{% stylesheet "home" %}
-{% endblock %}
+{% load staticfiles  %}
 
 {% block content %}
 <div class="index">
@@ -17,9 +13,5 @@
         <% } %>
     </div>
 </div>
-{% endblock %}
-
-{% block js %}
-{% javascript "home" %}
 {% endblock %}
 

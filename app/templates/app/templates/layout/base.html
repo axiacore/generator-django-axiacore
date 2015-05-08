@@ -1,4 +1,4 @@
-<!DOCTYPE html>{% load staticfiles pipeline %}
+<!DOCTYPE html>{% load staticfiles %}
 <html>
     <head>
         <meta charset="utf-8">
@@ -10,7 +10,6 @@
 
         <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
 
-        {% stylesheet 'global_css' %}
         {% block css %}{% endblock %}
         <!--[if IE]>
             <link href="{% static 'css/ie.css' %}" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -19,7 +18,6 @@
     <body>
         {% block content %}{% endblock %}
 
-        {% javascript 'global_js' %}
         {% block js %}{% endblock %}
     </body>
   <!--

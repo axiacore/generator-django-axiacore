@@ -11,13 +11,22 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-INSTALLED_APPS = (
+TEST_PROJECT_APPS = (
+    'app',
+)
+
+INSTALLED_APPS = TEST_PROJECT_APPS + (
+    'flat',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_jenkins',
+
+    'django_extensions',
+    'compressor',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -27,6 +36,13 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+
+    'compressor.finders.CompressorFinder',
 )
 
 ROOT_URLCONF = 'app.urls'
@@ -40,18 +56,15 @@ DATABASES = {
     }
 }
 
-# django-grappelli
-GRAPPELLI_ADMIN_TITLE = u'<%= adminSiteName %>'
-GRAPPELLI_INDEX_DASHBOARD = 'app.dashboard.CustomIndexDashboard'
-
 LANGUAGE_CODE = 'es-co'
 
 TIME_ZONE = 'America/Bogota'
 
 USE_I18N = True
-USE_L10N = True
+USE_L10N = False
 USE_TZ = True
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 PASSWORD_HASHERS = (
@@ -62,11 +75,6 @@ AXES_LOGIN_FAILURE_LIMIT = 10
 AXES_USE_USER_AGENT = True
 AXES_COOLOFF_TIME = 1
 AXES_LOCKOUT_TEMPLATE = '403.html'
-
-# Have pipeline settings in a separate file.
-settings_file = __import__('app.pipeline_settings').pipeline_settings
-for setting_value in dir(settings_file):
-    locals()[setting_value] = getattr(settings_file, setting_value)
 
 import sys
 if 'test' in sys.argv:

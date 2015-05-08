@@ -1,8 +1,9 @@
 # Framework
-Django==1.8
+Django==1.8.1
 
 # Libs
-coverage==3.5
+coverage==4.0a5
+ipython==3.1.0
 pep8==1.6.2
 Pillow==2.8.1
 psycopg2==2.6
@@ -14,8 +15,8 @@ Sphinx==1.3.1
 # Apps
 django-axes==1.3.9
 django-braces==1.8.0
+django-compressor==1.5
 django-crispy-forms==1.4.0
-django-discover-jenkins==0.1.3
 django-extensions==1.5.2
-django-grappelli==2.6.4
-django-pipeline==1.4.7
+django-flat-theme==0.9.3
+django-jenkins==0.17.0
